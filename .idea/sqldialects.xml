@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/ExScheduler.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/001_kids_shop_init.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/002_kids_shop_seed.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/003_kids_shop_add_more_tables.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/004_kids_shop_add_rating.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/005_kids_shop_get_average_rating.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/006_Change_Tables.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/007_Add_procedure_get_sale_per_catagory_for_employee.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/008_Add_Procedure_Set_Sale_Per_Category.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/009_Create_Reporting_Database.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/010_Add_Fact_and_Dimension_Tables.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/011_add_procedure_get_top_3_products.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/012_add_procedure_get_top_2_categories.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/013_add_procedure_get_top_product_by_duration.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/014_get_top_product_by_category.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../SWE-4602_SoftwareDesignAndArchitecture/Lab_1/015_ get_top_employee_by_duration.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../Server_Programming_Project_PizzaLagbe/Database/pizzalagbe.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/../Server_Programming_Project_PizzaLagbe/Database/pizzalagbequeries.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/../../Sixth Semester/SDA Lab/001_kids_shop_init.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../../Sixth Semester/SDA Lab/002_kids_shop_seed.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../../Sixth Semester/SDA Lab/003_kids_shop_add_more_tables.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../../Sixth Semester/SDA Lab/lab1.sql" dialect="MySQL" />
+  </component>
+</project>
