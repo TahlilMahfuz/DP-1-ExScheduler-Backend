@@ -11,11 +11,6 @@ namespace ExScheduler_Server.Services.StudentServices
             _CRRepository = cRRepository;
         }
 
-        public ICollection<string> GetCourses()
-        {
-            return _CRRepository.GetCourses();
-        }
-
         public ICollection<GetExamDateAndCourseDto> GetExamDatesAndCourses()
         {
             return _CRRepository.GetExamDatesAndCourses();
@@ -31,10 +26,14 @@ namespace ExScheduler_Server.Services.StudentServices
             return _CRRepository.postStudentPreference(postStudentPreferenceDtos);
         }
 
-
         ICollection<linkedCoursesDto> IStudentServices.GetLinkedCourses()
         {
             return _CRRepository.GetLinkedCourses();
+        }
+
+        public ICollection<string> GetCourses()
+        {
+            return _CRRepository.GetCourses();
         }
     }
 }

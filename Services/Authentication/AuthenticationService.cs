@@ -17,8 +17,7 @@ namespace ExScheduler_Server.Services.Authentication
             Admin admin = _adminRepository.GetAdminByEmail(adminLoginDto.AdminEmail);
             if (admin == null)
             {
-                //return Task.FromResult("Email does not exist");
-                throw new Exception("Email does not exist");
+                return Task.FromResult("Email does not exist");
             }
 
             bool isPasswordValid = PassworHasher.VerifyPassword(adminLoginDto.AdminPassword, admin.AdminPassword, admin.Salt);
@@ -30,8 +29,7 @@ namespace ExScheduler_Server.Services.Authentication
             }
             else
             {
-                //return Task.FromResult("Password is incorrect");
-                throw new Exception("Password is incorrect");
+                return Task.FromResult("Password is incorrect");
             }
         }
 

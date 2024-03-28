@@ -25,15 +25,17 @@ namespace ExScheduler_Server.Repository
         }
         private bool Save()
         {
-            try{
-                return _context.SaveChanges() >= 0 ? true : false;
-            }
-            catch (DbUpdateException e)
+            try
             {
+                var saved = _context.SaveChanges();
+                return saved >= 0 ? true : false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
                 return false;
             }
-            //var saved = _context.SaveChanges();
-            //return saved >= 0 ? true : false;
+            
         }
         public bool EmailExistsAlready(string crEmail)
         {
@@ -146,24 +148,18 @@ namespace ExScheduler_Server.Repository
 
         public string postDatesWithPriority(ICollection<LinkDatesDto> linkDates)
         {
-            // Access JWT information from HttpContext
-            var user = _httpContextAccessor?.HttpContext?.User;
-
-            // Retrieve specific claim (e.g., ProgramSemesterID)
-            var programSemesterIdClaim = user?.Claims.FirstOrDefault(c => c.Type == "ProgramSemesterID");
-
             //insert data in LinkExamDate table
             foreach (var linkDate in linkDates)
             {
                 LinkExamDate linkExamDates = new LinkExamDate();
                 linkExamDates.Link = _context.Links.FirstOrDefault(p => p.linkname == linkDate.linkName);
                 linkExamDates.ExamSchedule = _context.ExamSchedules.FirstOrDefault(p => p.examDate == linkDate.examDate);
+                linkExamDates.ProgrammeSemester = _context.ProgramSemesters.FirstOrDefault(p => p.programSemesterName == linkDate.programmeSemester);
                 if(linkExamDates.Link == null || linkExamDates.ExamSchedule == null)
                 {
                     return "Link or ExamDate does not exist";
                 }
                 linkExamDates.Priority = linkDate.priority;
-                linkExamDates.programSemesterID = Guid.Parse(programSemesterIdClaim.Value);
                 _context.Add(linkExamDates);
             }
             return Save() ? "Dates with priority added successfully" : "Preference already exists";

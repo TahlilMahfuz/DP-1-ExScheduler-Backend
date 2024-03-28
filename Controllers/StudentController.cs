@@ -79,15 +79,7 @@ namespace ExScheduler_Server.Controllers
         [Authorize]
         public IActionResult PostStudentPreferences([FromBody] ICollection<PostStudentPreferenceDto> postStudentPreferenceDtos)
         {
-            return Ok(new { info = _CRServices.postStudentPreference(postStudentPreferenceDtos) });
-        }
-
-        
-        [HttpGet("GetCourses")]
-        [Authorize]
-        public IActionResult GetCourses()
-        {
-            return Ok(new { info = _CRServices.GetCourses() });
+            return Ok(new { message = _CRServices.postStudentPreference(postStudentPreferenceDtos) });
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using ExScheduler_Server.Data;
+﻿using AutoMapper.Execution;
+using ExScheduler_Server.Data;
 using ExScheduler_Server.Dto;
 using ExScheduler_Server.Interfaces;
 using ExScheduler_Server.Models;
@@ -252,6 +253,41 @@ namespace ExScheduler_Server.Repository
             return linkCourseDatePriority.ToList();
         }
 
+        public ICollection<PrioritiesDto> GetPriorities()
+        {
+            var query = from linkExamDate in _context.LinkExamDates
+                        join link in _context.Links on linkExamDate.LinkID equals link.linkID
+                        join examSchedule in _context.ExamSchedules on linkExamDate.ExamScheduleID equals examSchedule.examScheduleID
+                        join programSemester in _context.ProgramSemesters on linkExamDate.ProgrammeSemesterID equals programSemester.programSemesterID
+                        select new PrioritiesDto
+                        {
+                            linkname = link.linkname,
+                            examDate = examSchedule.examDate,
+                            programmeSemesterName = programSemester.programSemesterName,
+                            priority = linkExamDate.Priority.ToString()
+                        };
+
+            return query.ToList();
+        }
+
+        public string PostLinkedCoursesSchedule(ICollection<PostLinkedCoursesScheduleDto> postLinkedCoursesScheduleDtos)
+        {
+            foreach (var postLinkedCoursesScheduleDto in postLinkedCoursesScheduleDtos)
+            {
+                var course = _context.Courses.FirstOrDefault(p => p.courseName == postLinkedCoursesScheduleDto.courseName);
+                if(course == null)
+                {
+                    return "Course doesn't exist";
+                }
+                else
+                {
+                    var schedule = _context.ExamSchedules.FirstOrDefault(p => p.examDate == postLinkedCoursesScheduleDto.date);
+                    course.ExamSchedule = schedule;
+                }
+            }
+            return Save() ? "Exam Schedule added successfully" : "course doesn't exist";
+        }
+
         public ICollection<LinkedCoursesWIthoutPriority> GetLinkedCoursesWithoutPriority()
         {
             var linkedCoursesWithoutPriority = from linkCourse in _context.LinkCourses
@@ -267,6 +303,5 @@ namespace ExScheduler_Server.Repository
 
             return linkedCoursesWithoutPriority.ToList();
         }
-
     }
 }

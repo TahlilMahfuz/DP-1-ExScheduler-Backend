@@ -36,7 +36,7 @@ namespace ExScheduler_Server.Data
 
 
             modelBuilder.Entity<LinkExamDate>()
-                .HasKey(le => new { le.LinkID, le.ExamScheduleID,le.Priority ,le.programSemesterID});
+                .HasKey(le => new { le.LinkID, le.ExamScheduleID, le.ProgrammeSemesterID, le.Priority });
 
             modelBuilder.Entity<LinkExamDate>()
                 .HasOne(le => le.Link)

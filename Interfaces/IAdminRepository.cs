@@ -19,6 +19,8 @@ namespace ExScheduler_Server.Interfaces
         ICollection<RoutineDto> FetchExamSchedules();
         ICollection<linkedCoursesWithProgSem> GetLinkedCourses();
         ICollection<LinkCourseDatePriorityDto> GetLinkCourseDatePriority();
+        ICollection<PrioritiesDto> GetPriorities();
+        string PostLinkedCoursesSchedule(ICollection<PostLinkedCoursesScheduleDto> postLinkedCoursesScheduleDtos);
         ICollection<LinkedCoursesWIthoutPriority> GetLinkedCoursesWithoutPriority();
     }
 }

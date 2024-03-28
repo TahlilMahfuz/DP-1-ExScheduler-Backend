@@ -114,6 +114,14 @@ namespace ExScheduler_Server.Services.AdminServices
             return _adminRepository.GetLinkCourseDatePriority();
         }
 
+        public ICollection<PrioritiesDto> GetPriorities()
+        {
+            return _adminRepository.GetPriorities();
+        }
+        public string PostLinkedCoursesSchedule(ICollection<PostLinkedCoursesScheduleDto> postLinkedCoursesScheduleDtos)
+        {
+            return _adminRepository.PostLinkedCoursesSchedule(postLinkedCoursesScheduleDtos);
+        }
         public ICollection<LinkedCoursesWIthoutPriority> GetLinkedCoursesWithoutPriority()
         {
             return _adminRepository.GetLinkedCoursesWithoutPriority();
